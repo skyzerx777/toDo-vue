@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import Header from './components/Header.vue';
 import '/src/App.css';
 </script>
 
-<template><p class="text-6xl">hello</p></template>
-
-<style scoped></style>
+<template>
+	<Header />
+</template>
