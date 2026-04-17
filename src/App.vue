@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import Footer from './components/Footer.vue';
 import '/src/App.css';
 </script>
 
-<template><p class="text-6xl">hello</p></template>
+<template>
+	<Footer />
+</template>
 
 <style scoped></style>
