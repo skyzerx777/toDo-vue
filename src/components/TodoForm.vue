@@ -40,7 +40,7 @@ watchEffect(() => console.log(taskDeadline.value));
 		<label>Deadline: <input type="date" v-model="taskDeadline" /></label>
 		<button
 			:disabled="taskNameInput.length === 0"
-			:style="[taskNameInput.length === 0 ? 'color:gray' : 'color:black']"
+			:class="[taskNameInput.length === 0 ? 'text-gray-500' : 'text-black']"
 		>
 			Add task
 		</button>
