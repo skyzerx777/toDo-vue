@@ -1,8 +1,8 @@
 export interface ITodo {
 	id: number;
-	header: string;
+	name: string;
 	description: string;
-	date: Date;
+	deadline: string;
 	completed: boolean;
 	overdue: boolean;
 }
