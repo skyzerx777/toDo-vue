@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import Header from './components/Header.vue';
+import TodoForm from './components/TodoForm.vue';
 import '/src/App.css';
 </script>
 
 <template>
-  <Header />
+	<Header />
+	<TodoForm />
 	<Footer />
 </template>
