@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
+import { ref } from 'vue';
 
 const { todoArray } = defineProps(['todoArray']);
 const taskNameInput = ref('');
@@ -21,8 +21,6 @@ function addTask() {
 	taskDescriptionInput.value = '';
 	taskDeadline.value = todayDateString;
 }
-
-watchEffect(() => console.log(taskDeadline.value));
 </script>
 
 <template>
