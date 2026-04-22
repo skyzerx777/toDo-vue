@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue';
-import { type ITodo } from './types';
+import type { ITodo } from './types';
 
-const { todo, index } = defineProps<{ todo: ITodo; index: number }>();
+const { todo, todoArray } = defineProps<{
+	todo: ITodo;
+	todoArray: ITodo[];
+}>();
 defineEmits(['removeTodo']);
 
 const isEditing = ref(false);
@@ -12,6 +15,10 @@ function toggleEditMode() {
 
 watchEffect(() => {
 	todo.overdue = new Date(todo.deadline).getDate() < new Date().getDate();
+});
+
+watchEffect(() => {
+	localStorage.setItem('todos', JSON.stringify(todoArray) as string);
 });
 </script>
 
@@ -43,7 +50,7 @@ watchEffect(() => {
 		</p>
 		<input type="date" :hidden="!isEditing" v-model="todo.deadline" />
 		<button class="cursor-pointer size-8" @click="toggleEditMode">Edit</button>
-		<button class="cursor-pointer size-4" @click="$emit('removeTodo', index)">
+		<button class="cursor-pointer size-4" @click="$emit('removeTodo', todo.id)">
 			Remove
 		</button>
 	</div>

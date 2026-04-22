@@ -9,8 +9,17 @@ const statuses: StatusesType[] = ['All', 'Completed', 'Incompleted'];
 const hideExpired = ref(false);
 const status = ref<StatusesType>('All');
 
-function removeTodo(index: number) {
-	todoArray.splice(index, 1);
+function removeTodo(id: number) {
+	let indexForRemoving = 0;
+	for (let todo of todoArray) {
+		if (todo.id == id) {
+			break;
+		}
+		indexForRemoving++;
+	}
+	todoArray.splice(indexForRemoving, 1);
+
+	localStorage.setItem('todos', JSON.stringify(todoArray));
 }
 
 const filteredTodoArray = computed(() => {
@@ -43,11 +52,11 @@ const reversedTodoArray = computed<ITodo[]>(() =>
 			<option v-for="status in statuses">{{ status }}</option>
 		</select>
 		<TodoItem
-			v-for="(todo, index) in reversedTodoArray"
+			v-for="todo in reversedTodoArray"
 			:key="todo.id"
 			:todo
 			@removeTodo="removeTodo"
-			:index
+			:todoArray
 		/>
 	</div>
 </template>

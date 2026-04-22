@@ -20,6 +20,8 @@ function addTask() {
 	taskNameInput.value = '';
 	taskDescriptionInput.value = '';
 	taskDeadline.value = todayDateString;
+
+	localStorage.setItem('todos', JSON.stringify(todoArray));
 }
 </script>
 
