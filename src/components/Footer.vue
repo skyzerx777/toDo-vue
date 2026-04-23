@@ -27,8 +27,10 @@ const currentDateFormatted = computed(() => {
 </script>
 
 <template>
-	<footer class="bg-[#1f2937] py-3 px-4 w-full fixed bottom-0">
-		<p class="text-[14px] text-[#e5e7eb] text-center">
+	<footer
+		class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white border border-gray-200 shadow-sm rounded-full px-4 py-1"
+	>
+		<p class="text-xs text-gray-500 font-medium">
 			{{ currentDateFormatted }}
 		</p>
 	</footer>

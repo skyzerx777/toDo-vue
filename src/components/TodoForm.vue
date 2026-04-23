@@ -26,33 +26,53 @@ function addTask() {
 </script>
 
 <template>
-	<form class="flex flex-col items-center gap-4" @submit.prevent="addTask">
+	<form
+		class="bg-white rounded-xl shadow-sm p-4 flex flex-col gap-4"
+		@submit.prevent="addTask"
+	>
 		<input
 			type="text"
 			v-model="taskNameInput"
-			placeholder="Enter your task"
+			placeholder="Task name..."
 			required
+			class="w-full border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
 		/>
 		<textarea
 			v-model="taskDescriptionInput"
 			placeholder="Task description..."
+			rows="5"
+			class="w-full border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
 		></textarea>
-		<label>Deadline: <input type="date" v-model="taskDeadline" /></label>
-		<button
-			:disabled="taskNameInput.length === 0"
-			:class="[taskNameInput.length === 0 ? 'text-gray-500' : 'text-black']"
+		<div
+			class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3"
 		>
-			Add task
-		</button>
-		<button
-			type="reset"
-			@click.prevent="
-				taskNameInput = '';
-				taskDescriptionInput = '';
-				taskDeadline = todayDateString;
-			"
-		>
-			Clean fields
-		</button>
+			<div class="flex items-center gap-2">
+				<span class="text-gray-900 text-sm">Deadline date:</span>
+				<input
+					type="date"
+					v-model="taskDeadline"
+					class="w-full sm:w-auto border border-gray-200 rounded px-2 py-1 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+				/>
+			</div>
+			<div class="flex flex-col sm:flex-row gap-2 sm:items-center">
+				<button
+					:disabled="taskNameInput.length === 0"
+					class="w-full sm:w-auto px-3 py-1.5 text-sm rounded-md text-white bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 transition"
+				>
+					Add task
+				</button>
+				<button
+					type="reset"
+					@click.prevent="
+						taskNameInput = '';
+						taskDescriptionInput = '';
+						taskDeadline = todayDateString;
+					"
+					class="w-full sm:w-auto px-3 py-1.5 text-sm rounded-md border border-gray-200 text-gray-500 hover:bg-gray-100 transition"
+				>
+					Reset
+				</button>
+			</div>
+		</div>
 	</form>
 </template>

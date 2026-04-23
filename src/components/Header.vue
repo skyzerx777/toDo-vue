@@ -1,3 +1,5 @@
 <template>
-	<h1 class="text-center text-5xl mt-6 font-semibold">ToDo App</h1>
+	<header class="max-w-2xl mx-auto mt-6 mb-4 px-2">
+		<h1 class="text-2xl font-semibold text-gray-800 text-center">ToDo App</h1>
+	</header>
 </template>

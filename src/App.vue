@@ -20,7 +20,7 @@ onMounted(async () => {
 
 <template>
 	<Header />
-	<main>
+	<main class="max-w-4xl m-auto pb-14">
 		<TodoForm :todoArray />
 		<TodoList :todoArray />
 	</main>
