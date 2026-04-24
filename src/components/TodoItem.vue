@@ -18,8 +18,19 @@ function toggleEditMode() {
 	isEditing.value = !isEditing.value;
 }
 
+function isOverdue(deadline: string) {
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+
+	const due = new Date(deadline);
+	due.setHours(0, 0, 0, 0);
+
+	console.log(today, due, due < today);
+	return due < today;
+}
+
 watchEffect(() => {
-	todo.overdue = new Date(todo.deadline).getDate() < new Date().getDate();
+	todo.overdue = isOverdue(todo.deadline);
 });
 
 watchEffect(() => {

@@ -15,13 +15,23 @@ function addTask() {
 		description: taskDescriptionInput.value,
 		deadline: taskDeadline.value,
 		completed: false,
-		overdue: new Date(taskDeadline.value).getDate() < new Date().getDate(),
+		overdue: isOverdue(taskDeadline.value),
 	});
 	taskNameInput.value = '';
 	taskDescriptionInput.value = '';
 	taskDeadline.value = todayDateString;
 
 	localStorage.setItem('todos', JSON.stringify(todoArray));
+}
+
+function isOverdue(deadline: string) {
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+
+	const due = new Date(deadline);
+	due.setHours(0, 0, 0, 0);
+
+	return due < today;
 }
 </script>
 
@@ -33,12 +43,15 @@ function addTask() {
 		<input
 			type="text"
 			v-model="taskNameInput"
+			name="taskNameInput"
 			placeholder="Task name..."
 			required
 			class="w-full border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+			maxlength="80"
 		/>
 		<textarea
 			v-model="taskDescriptionInput"
+			name="taskDescriptionInput"
 			placeholder="Task description..."
 			rows="5"
 			class="w-full border border-gray-200 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -51,6 +64,7 @@ function addTask() {
 				<input
 					type="date"
 					v-model="taskDeadline"
+					name="taskDeadlineInput"
 					class="w-full sm:w-auto border border-gray-200 rounded px-2 py-1 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
 				/>
 			</div>

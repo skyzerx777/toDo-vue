@@ -60,6 +60,7 @@ const reversedTodoArray = computed<ITodo[]>(() =>
 			</label>
 			<select
 				v-model="status"
+				name="todosStatusSelector"
 				class="border border-gray-200 rounded px-2 py-1 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
 			>
 				<option v-for="status in statuses" :key="status" class="text-sm">
