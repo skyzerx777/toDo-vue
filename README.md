@@ -1,42 +1,63 @@
-# toDo-vue
+# ToDo App — Vue 3 + TypeScript
 
-This template should help get you started developing with Vue 3 in Vite.
+A Todo application built to practice **modern Vue development with TypeScript**, focusing on clean architecture and reactivity.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Overview
 
-## Recommended Browser Setup
+The app allows users to manage daily tasks with a responsive and reactive interface.
+Data is persisted in `localStorage`, so tasks remain available between sessions.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+---
 
-## Type Support for `.vue` Imports in TS
+## Features
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+* Create, edit, and delete tasks
+* Mark tasks as completed
+* Deadline support with overdue detection
+* Persistent state via `localStorage`
+* Reactive UI with instant updates
+* Basic validation (e.g. empty input handling)
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Architecture
 
-## Project Setup
-
-```sh
-npm install
+```
+src/
+  components/
+    TodoForm.vue      # handles task creation
+    TodoItem.vue      # single task logic
+    TodoList.vue      # renders list of tasks
+  types/
+    todo.ts           # TypeScript interfaces
+  App.vue             # root state & logic
+  main.ts             # app entry
 ```
 
-### Compile and Hot-Reload for Development
+Key idea: keep **logic close to where it’s used**, while avoiding unnecessary complexity.
 
-```sh
+---
+
+## Setup
+
+```bash
+git clone https://github.com/skyzerx777/toDo-vue.git
+cd toDo-vue
+npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+---
 
-```sh
-npm run build
-```
+## Demo
+
+<img width="1800" height="885" alt="Screenshot_chrome_2026-05-03_13 53 49" src="https://github.com/user-attachments/assets/fd9ce085-d97e-4436-b41c-ccaa2d62d9f3" />
+
+---
+
+## Author
+
+GitHub: https://github.com/skyzerx777  
+LinkedIn: https://www.linkedin.com/in/yevhenii-hrebenshchykov-10b5b1264/
